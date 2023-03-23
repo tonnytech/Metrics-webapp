@@ -1,8 +1,11 @@
 import './App.css';
+import MainContainer from './components/MainContainer';
 
 function App() {
   return (
-    <p className="App">Focus on progress, not perfection </p>
+    <p className="App">
+      <MainContainer />
+    </p>
   );
 }
 
