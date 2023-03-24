@@ -8,11 +8,11 @@ const Countries = () => {
   const dispatch = useDispatch();
 
   const { CountryData } = useSelector((state) => state.Countries);
-  console.log(CountryData)
+  console.log(CountryData);
 
   useEffect(()=> {
       dispatch(fetchCountries());
-  })
+  },[dispatch]);
 
   return (
     <div>Countries appear here</div>
