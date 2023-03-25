@@ -1,25 +1,19 @@
 /* eslint-disable */
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchCountries } from '../redux/CountiesSlice/CountriesSlice';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import CountriesCSS from './styles/Countries.module.css';
 import Navbar from './Navbar';
 
 const Countries = () => {
 
-  const dispatch = useDispatch();
 
   const [continent, setContinent] = useState('all');
 
   const { CountryData } = useSelector((state) => state.Countries);
   
-  useEffect(()=> {
-      dispatch(fetchCountries());
-  },[dispatch]);
-
   return (
-    <div className={CountriesCSS.countryMainContainer}>
+    <div className={CountriesCSS.countryMainContainer} data-testid="countryContainer">
       <div className={CountriesCSS.countryContainer}>
         <Navbar />
       <h1>Countries</h1>
