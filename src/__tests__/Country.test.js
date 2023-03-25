@@ -1,8 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import configureStore from 'redux-mock-store';
 import { BrowserRouter } from 'react-router-dom';
-import Countries from '../components/Countries';
+import configureStore from 'redux-mock-store';
 import Country from '../components/Country';
 
 describe('Countries testing: "features and components"', () => {
@@ -33,41 +32,15 @@ describe('Countries testing: "features and components"', () => {
   beforeEach(() => {
     store = mockStore(initialState);
   });
-
-  test('is select element displaying', () => {
+  test('is more detail container rendering', () => {
     render(
       <BrowserRouter>
         <Provider store={store}>
-          <Countries />
+          <Country />
         </Provider>
       </BrowserRouter>,
     );
-    const missionRows = screen.getByText('All');
-
-    expect(missionRows).toBeInTheDocument();
-  });
-
-  test('is Countries container rendering', () => {
-    render(
-      <BrowserRouter>
-        <Provider store={store}>
-          <Countries />
-        </Provider>
-      </BrowserRouter>,
-    );
-    const MissionsContainer = screen.getByTestId('countryContainer');
-    expect(MissionsContainer).toBeInTheDocument();
-  });
-
-  test('is list container rendering', () => {
-    render(
-      <BrowserRouter>
-        <Provider store={store}>
-          <Countries />
-        </Provider>
-      </BrowserRouter>,
-    );
-    const List = screen.getAllByRole('list');
-    expect(List.length).toBe(initialState.Countries.CountryData.length);
+    const moreDetails = screen.getByTestId('details');
+    expect(moreDetails).toBeInTheDocument();
   });
 });
