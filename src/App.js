@@ -1,11 +1,18 @@
-import './App.css';
-import MainContainer from './components/MainContainer';
+/* eslint-disable */
+import { Route, Routes } from "react-router";
+import "./App.css";
+import Countries from "./components/Countries";
+import Country from "./components/Country";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <p className="App">
-      <MainContainer />
-    </p>
+    <div className="App">
+      <Routes>
+          <Route path="/" element={<Countries />} />
+          <Route path="/:id" element={<Country />} />
+      </Routes>
+    </div>
   );
 }
 
