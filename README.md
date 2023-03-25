@@ -53,6 +53,10 @@ A web-based application to understand about the basics of React - Redux
 
 <!-- LIVE DEMO -->
 
+## 🚀 Live Demo <a name="live-demo"></a>
+
+- See it live by clicking [Live Demo Link](https://web-metrics.netlify.app/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- GETTING STARTED -->
