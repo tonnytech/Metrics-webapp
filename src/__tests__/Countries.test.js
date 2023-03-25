@@ -3,7 +3,6 @@ import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import { BrowserRouter } from 'react-router-dom';
 import Countries from '../components/Countries';
-import Country from '../components/Country';
 
 describe('Countries testing: "features and components"', () => {
   const mockStore = configureStore([]);

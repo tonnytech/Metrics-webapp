@@ -7,9 +7,9 @@ export const fetchCountries = createAsyncThunk(
   async () => {
     const response = await fetch(baseUrl);
     const data = await response.json();
-    
+    return data;
   },
-);return data;
+);
 
 const initialState = {
   CountryData: [],
@@ -43,8 +43,6 @@ const CountriesSlice = createSlice({
             region: country.region,
           });
         });
-
-        // console.log(newArray);
 
         newState.CountryData = newArray;
         return newState;
