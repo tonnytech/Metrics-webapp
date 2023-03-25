@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCountries } from '../redux/CountiesSlice/CountriesSlice';
 import { Link } from 'react-router-dom';
+import CountriesCSS from './styles/Countries.module.css';
+import Navbar from './Navbar';
 
 const Countries = () => {
 
@@ -12,14 +14,14 @@ const Countries = () => {
 
   const { CountryData } = useSelector((state) => state.Countries);
   
-  // CountryData.map((c)=>(console.log(c.continent)))
-
   useEffect(()=> {
       dispatch(fetchCountries());
   },[dispatch]);
 
   return (
-    <div>
+    <div className={CountriesCSS.countryMainContainer}>
+      <div className={CountriesCSS.countryContainer}>
+        <Navbar />
       <h1>Countries</h1>
       <div>
       <select
@@ -37,20 +39,22 @@ const Countries = () => {
           <option value="Antarctica">Antarctica</option>
         </select>
       </div>
+      <div className={CountriesCSS.countryList}>
       {CountryData.filter((country) => {
           if (continent === 'all') {
             return country;
           }
           return country.continent === continent;
         }).map((country)=>(
-        <Link to={`/${country.Name.common}`}>
-          <ul >
-            <li>{country.Name.common}</li>
-            <li>{country.flag}</li>
+          <Link to={`/${country.Name.common}`} key={country.Name.common} className={CountriesCSS.link}>
+          <ul className={CountriesCSS.linkList}>
+            <li className={CountriesCSS.countryName}>{country.Name.common}</li>
+            <li className={CountriesCSS.countryFlag}>{country.flag}</li>
           </ul>
-        </Link>
-        
+        </Link> 
       ))}
+      </div>
+    </div>
     </div>
   )
 }
