@@ -1,11 +1,19 @@
 /* eslint-disable */
 import { Route, Routes } from "react-router";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { fetchCountries } from "./redux/CountiesSlice/CountriesSlice";
 import "./App.css";
 import Countries from "./components/Countries";
 import Country from "./components/Country";
-import Navbar from "./components/Navbar";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+      dispatch(fetchCountries());
+  }, [dispatch]);
+
   return (
     <div className="App">
       <Routes>
