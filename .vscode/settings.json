@@ -1,0 +1,7 @@
+{    
+     "settings-key": {
+        "setting-1":  true,
+        "setting-2":  "../css/",
+        "setting-3": "> 0.2%, last 1 version"
+    }
+}
