@@ -1,22 +1,20 @@
-/* eslint-disable */
-
 import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
+import { BrowserRouter } from 'react-router-dom';
 import Countries from '../components/Countries';
 import Navbar from '../components/Navbar';
-import { BrowserRouter } from 'react-router-dom';
 import Country from '../components/Country';
 
 describe('Countries testing: "features and components"', () => {
   const mockStore = configureStore([]);
   const initialState = {
     Countries: {
-        CountryData: [
+      CountryData: [
         {
           Name: 'kenya',
           Population: 500,
-          startOfWeek: 'monday'
+          startOfWeek: 'monday',
         },
         {
           Name: 'Uganda',
@@ -39,23 +37,23 @@ describe('Countries testing: "features and components"', () => {
 
   test('is select element displaying', () => {
     render(
-        <BrowserRouter>
-      <Provider store={store}>
-        <Countries />
-      </Provider>
-      </BrowserRouter>
+      <BrowserRouter>
+        <Provider store={store}>
+          <Countries />
+        </Provider>
+      </BrowserRouter>,
     );
-    const missionRows = screen.getByText("All");
+    const missionRows = screen.getByText('All');
 
     expect(missionRows).toBeInTheDocument();
   });
 
   test('is Countries container rendering', () => {
     render(
-        <BrowserRouter>
-      <Provider store={store}>
-        <Countries />
-      </Provider>
+      <BrowserRouter>
+        <Provider store={store}>
+          <Countries />
+        </Provider>
       </BrowserRouter>,
     );
     const MissionsContainer = screen.getByTestId('countryContainer');
@@ -64,10 +62,10 @@ describe('Countries testing: "features and components"', () => {
 
   test('is navContainer container rendering', () => {
     render(
-    <BrowserRouter>
-      <Provider store={store}>
-        <Navbar />
-      </Provider>
+      <BrowserRouter>
+        <Provider store={store}>
+          <Navbar />
+        </Provider>
       </BrowserRouter>,
     );
     const NavContainer = screen.getByTestId('navContainer');
@@ -76,26 +74,25 @@ describe('Countries testing: "features and components"', () => {
 
   test('is list container rendering', () => {
     render(
-    <BrowserRouter>
-      <Provider store={store}>
-        <Countries />
-      </Provider>
+      <BrowserRouter>
+        <Provider store={store}>
+          <Countries />
+        </Provider>
       </BrowserRouter>,
     );
-    const List = screen.getAllByRole("list");
+    const List = screen.getAllByRole('list');
     expect(List.length).toBe(initialState.Countries.CountryData.length);
   });
-  
+
   test('is more detail container rendering', () => {
-    const country = true;
     render(
-    <BrowserRouter>
-      <Provider store={store}>
-        <Country />
-      </Provider>
+      <BrowserRouter>
+        <Provider store={store}>
+          <Country />
+        </Provider>
       </BrowserRouter>,
     );
-    const moreDetails = screen.getByTestId("details");
+    const moreDetails = screen.getByTestId('details');
     expect(moreDetails).toBeInTheDocument();
   });
 });
