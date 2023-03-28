@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const baseUrl = 'https://restcountries.com/v3.1/all';
@@ -12,7 +10,6 @@ export const fetchCountries = createAsyncThunk(
     return data;
   },
 );
-
 
 const initialState = {
   CountryData: [],
@@ -34,8 +31,8 @@ const CountriesSlice = createSlice({
         const responseObject = action.payload;
         const newArray = [];
 
-        responseObject.forEach(country => {
-          newArray.push( {
+        responseObject.forEach((country) => {
+          newArray.push({
             Name: country.name,
             Population: country.population,
             startOfWeek: country.startOfWeek,
@@ -44,10 +41,8 @@ const CountriesSlice = createSlice({
             flagImage: country.flags.png,
             continent: country.continents[0],
             region: country.region,
-          })
+          });
         });
-
-        // console.log(newArray);
 
         newState.CountryData = newArray;
         return newState;
