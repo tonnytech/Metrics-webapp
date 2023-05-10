@@ -30,25 +30,25 @@ const Country = () => {
             </div>
           </div>
           <ul className={CountryCSS.countryInformation}>
-            <li>
+            <li className={CountryCSS.countryInformationList}>
               Capital City:
               {country.capital}
             </li>
-            <li>
+            <li className={CountryCSS.countryInformationList}>
               Population:
               {country.Population}
             </li>
-            <li>
+            <li className={CountryCSS.countryInformationList}>
               {' '}
               Continent:
               {country.continent}
             </li>
-            <li>
+            <li className={CountryCSS.countryInformationList}>
               {' '}
               Region:
               {country.region}
             </li>
-            <li>
+            <li className={CountryCSS.countryInformationList}>
               {' '}
               Start of Week:
               {country.startOfWeek}
