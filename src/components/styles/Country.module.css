@@ -17,6 +17,7 @@
   border-radius: 6px;
   height: 99.2vh;
   gap: 9rem;
+  padding-left: 0;
 }
 
 .ctryFlag {
@@ -27,6 +28,12 @@
   background-color: #4369b0;
   width: 18em;
   padding-top: 2rem;
+  padding-left: 0;
+}
+
+.countryInformationList {
+  background-color: #5788e5;
+  width: 100%;
 }
 
 .countryAndFlag {
@@ -57,4 +64,6 @@
   align-items: center;
   flex-direction: column;
   font-size: 15px;
+  padding-left: 0;
+  gap: 10px;
 }

@@ -11,7 +11,7 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchCountries());
-  }, [dispatch]);
+  }, []);
 
   return (
     <div className="App">
